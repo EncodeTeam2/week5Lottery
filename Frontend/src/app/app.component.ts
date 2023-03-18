@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ConnectedWalletComponent } from '../components/connectedWalletInfo/connectedWalletInfo.component'
 
 @Component({
   selector: 'app-root',

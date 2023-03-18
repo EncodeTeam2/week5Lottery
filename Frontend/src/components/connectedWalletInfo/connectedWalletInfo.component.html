@@ -1,1 +1,38 @@
 <h1>CONNECTED WALLET INFO!</h1>
+<div>
+  <button
+    type="button"
+    class="btn btn-success btn-lg px-4 gap-3"
+    (click)="isConnected()"
+  >
+    {{ walletAddress ? "Connected" : "Connect Wallet" }}
+  </button>
+  <button
+    type="button"
+    class="btn btn-warning btn-lg px-4 gap-3"
+    (click)="changeWallet()"
+  >
+    Change Wallet
+  </button>
+</div>
+<div>
+  <div class="card my-4">
+    <div class="card-body">
+      <h5 class="card-title">User Wallet</h5>
+      <h6 class="card-subtitle mb-2 text-muted">
+        {{ walletSigner?._address }}
+      </h6>
+      <p class="card-text">Balance: {{ userBalance }} ETH</p>
+      <p class="card-text">Token Balance: {{ userTokenBalance }} VOTE</p>
+
+      <div *ngIf="userTokenBalance">
+        <p>Request Tokens</p>
+        <input #valueInput class="input" type="number" min="0" max="10" />
+        <div>
+          <!-- <button *ngIf="valueInput.value" type="button" class="btn btn-primary btn-sm btn-block my-4"
+              (click)="requestTokens(valueInput.value)">Request Tokens</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
