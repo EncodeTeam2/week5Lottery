@@ -1,1 +1,44 @@
-<h1>OWNER INTERACTIONS!</h1>
+<div *ngIf="isOwner">
+  <div class="card my-4">
+    <div class="card-body">
+      <h5 class="card-title">Owner Information</h5>
+      <h6 class="card-subtitle mb-2 text-muted">
+        <a href="https://goerli.etherscan.io/address/{{ walletAddress }}">{{
+          walletAddress
+        }}</a>
+      </h6>
+      <!-- <div>
+        <button
+          type="button"
+          class="btn btn-success btn-lg px-4 gap-3"
+          (click)="isConnected()"
+        >
+          {{ walletAddress ? "Connected" : "Connect Wallet" }}
+        </button>
+      </div> -->
+
+      <p class="card-text">Bets Open: {{ betsOpen }}</p>
+      <p class="card-text">Are you the owner: {{ isOwner }}</p>
+      <div *ngIf="lotteryContract" class="my-4">
+        <p>Open Bets</p>
+        <input
+          #valueInput
+          class="input"
+          type="number"
+          placeholder="seconds"
+          min="1"
+          max="100000000000"
+        />
+        <br />
+        <button
+          type="button"
+          class="btn btn-danger btn-lg px-4 gap-3 my-4"
+          (click)="openBets(valueInput.value.toString())"
+        >
+          Set Time
+        </button>
+      </div>
+      <p class="card-text">Closing Time: {{ betsClosingTime }}</p>
+    </div>
+  </div>
+</div>
