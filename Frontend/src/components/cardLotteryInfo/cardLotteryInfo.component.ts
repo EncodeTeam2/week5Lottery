@@ -22,24 +22,24 @@ export class CardLotteryInfoComponent {
   constructor() {
     this.provider = new ethers.providers.Web3Provider(window.ethereum, 'any');
   }
-
-  async getContractInfo() {
-    this.lotteryAddress = LOTTERY_CONTRACT_ADDRESS;
-    this.lotteryContract = new Contract(
-      this.lotteryAddress,
-      lotteryJson.abi,
-      this.walletSigner ?? this.provider
-    );
-    this.lotteryContract['purchaseRatio']().then((purchaseRatioNum: number) => {
-      this.purchaseRatio = purchaseRatioNum;
-    });
-    this.lotteryContract['betPrice']().then((betPriceNum: number) => {
-      const betPriceStr = ethers.utils.formatEther(betPriceNum);
-      this.betPrice = parseFloat(betPriceStr);
-    });
-    this.lotteryContract['betFee']().then((betFeeNum: number) => {
-      const betFeeStr = ethers.utils.formatEther(betFeeNum);
-      this.betFee = parseFloat(betFeeStr);
-    });
+  async ngOnInit() {
+      this.lotteryAddress = LOTTERY_CONTRACT_ADDRESS;
+      this.lotteryContract = new Contract(
+        this.lotteryAddress,
+        lotteryJson.abi,
+        this.walletSigner ?? this.provider
+      );
+      this.lotteryContract['purchaseRatio']().then((purchaseRatioNum: number) => {
+        this.purchaseRatio = purchaseRatioNum;
+      });
+      this.lotteryContract['betPrice']().then((betPriceNum: number) => {
+        const betPriceStr = ethers.utils.formatEther(betPriceNum);
+        this.betPrice = parseFloat(betPriceStr);
+      });
+      this.lotteryContract['betFee']().then((betFeeNum: number) => {
+        const betFeeStr = ethers.utils.formatEther(betFeeNum);
+        this.betFee = parseFloat(betFeeStr);
+      });
   }
+
 }
