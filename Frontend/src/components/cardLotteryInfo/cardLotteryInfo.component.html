@@ -1,1 +1,21 @@
-<h1>CARD LOTTERY INFO!</h1>
+<div>
+  <div class="card my-4">
+    <div class="card-body">
+      <h5 class="card-title">Lottery Contract</h5>
+      <h6 class="card-subtitle mb-2 text-muted">
+        {{ lotteryAddress }}
+      </h6>
+      <p class="card-text">Purchase Ratio: {{ purchaseRatio }} LTO / ETH</p>
+      <p class="card-text">Bet Price: {{ betPrice }} ETH</p>
+      <p class="card-text">Bet Fee: {{ betFee }} ETH</p>
+
+      <button
+        type="button"
+        class="btn btn-success btn-lg px-4 gap-3"
+        (click)="getContractInfo()"
+      >
+        Connect
+      </button>
+    </div>
+  </div>
+</div>
