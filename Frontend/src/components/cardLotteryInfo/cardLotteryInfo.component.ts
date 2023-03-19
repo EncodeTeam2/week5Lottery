@@ -3,7 +3,7 @@ import { BigNumber, Contract, ethers } from 'ethers';
 import lotteryJson from '../../assets/Lottery.json';
 
 // hardcoded temporarily , discuss with team different solution
-const LOTTERY_CONTRACT_ADDRESS = '0x478c4CF98Ac9932F4F09c1582133696d8Aaa4D90';
+const LOTTERY_CONTRACT_ADDRESS = '0x6354dA7FbCc203D49cEC938727A9A97a4c80bDE7';
 
 @Component({
   selector: 'card-lottery-info',
