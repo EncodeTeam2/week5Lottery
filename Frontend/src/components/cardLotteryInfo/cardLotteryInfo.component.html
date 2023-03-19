@@ -3,11 +3,15 @@
     <div class="card-body">
       <h5 class="card-title">Lottery Contract</h5>
       <h6 class="card-subtitle mb-2 text-muted">
-        <a href="https://goerli.etherscan.io/address/{{lotteryAddress}}" >{{lotteryAddress}}</a>
+        <a href="https://goerli.etherscan.io/address/{{ lotteryAddress }}">{{
+          lotteryAddress
+        }}</a>
       </h6>
       <p class="card-text">Purchase Ratio: {{ purchaseRatio }} LTO / ETH</p>
       <p class="card-text">Bet Price: {{ betPrice }} ETH</p>
       <p class="card-text">Bet Fee: {{ betFee }} ETH</p>
+      <p class="card-text">Bets Open?: {{ betsOpen }}</p>
+      <p class="card-text">Closing Time: {{ betsClosingTime }}</p>
     </div>
   </div>
 </div>
