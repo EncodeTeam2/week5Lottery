@@ -3,17 +3,9 @@
     <div class="card-body">
       <h5 class="card-title">Token Contract</h5>
       <h6 class="card-subtitle mb-2 text-muted">
-        <a href="https://goerli.etherscan.io/address/{{ tokenAddress }}">{{
-          tokenAddress
-        }}</a>
+        <a href="https://goerli.etherscan.io/address/{{ tokenAddress }}" target="_blank">{{ tokenAddress }}</a>
       </h6>
-      <p class="card-text">
-        Token Balance: {{ tokenBalance ? tokenBalance : "0" }} LTO
-      </p>
-      <!-- <p class="card-text">Bet Price: {{ betPrice }} ETH</p>
-      <p class="card-text">Bet Fee: {{ betFee }} ETH</p>
-      <p class="card-text">Bets Open?: {{ betsOpen }}</p>
-      <p class="card-text">Closing Time: {{ betsClosingTime }}</p> -->
+      <p class="card-text"><strong>Balance</strong>: {{ tokenBalance ? tokenBalance : '0' }} LTO</p>
     </div>
   </div>
 </div>

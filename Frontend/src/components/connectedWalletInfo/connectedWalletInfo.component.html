@@ -4,22 +4,19 @@
       <h5 class="card-title">User Wallet</h5>
       <div class="row">
         <button type="button" class="btn btn-success btn-lg px-4 gap-3" (click)="isConnected()">
-          {{ walletAddress ? 'Connected' : 'Connect Wallet' }}
+          {{ walletAddress ? walletAddress : 'Connect Wallet' }}
         </button>
         <button type="button" class="btn btn-warning btn-lg px-4 gap-3" (click)="changeWallet()">Change Wallet</button>
       </div>
-      <h6 class="card-subtitle mb-2 text-muted">
-        {{ walletSigner?._address }}
-      </h6>
       <p class="card-text"><strong>Balance: </strong> {{ userEthBalance }} ETH</p>
       <p class="card-text"><strong>Token Balance: </strong> {{ lotteryTokenBalance }} LTO</p>
       <p class="card-text"><strong>Prize: </strong> {{ lotteryPrizeWinnings }} LTO</p>
 
-      <div *ngIf="lotteryTokenBalance">
+      <div *ngIf="walletAddress">
         <p>Request Tokens up to 10 Tokens</p>
         <input #valueInput class="input" type="number" min="1" max="10" />
         <div>
-          <button type="button" class="btn btn-success btn-sm btn-block my-4" (click)="requestTokens(valueInput.value)">
+          <button type="button" class="btn btn-success btn-md btn-block my-4" (click)="requestTokens(valueInput.value)">
             Request Tokens
           </button>
         </div>

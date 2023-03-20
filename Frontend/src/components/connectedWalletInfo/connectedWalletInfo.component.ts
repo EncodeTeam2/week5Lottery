@@ -34,9 +34,10 @@ export class ConnectedWalletComponent {
   // Creates the Web3 Provider to send / sign transactions interacting with the blockchain
   constructor() {
     this.provider = new ethers.providers.Web3Provider(window.ethereum, 'any');
-    this.lotteryTokenContractAddress = '0x68F42549c2c25c3f51aA67652E6d3bb9Dffd052F';
-    this.lotteryContractAddress = '0x478c4CF98Ac9932F4F09c1582133696d8Aaa4D90';
+    this.lotteryTokenContractAddress = '0x6354dA7FbCc203D49cEC938727A9A97a4c80bDE7';
+    this.lotteryContractAddress = '0x6354dA7FbCc203D49cEC938727A9A97a4c80bDE7';
     this.lotteryPrizeWinnings = "0";
+    this.lotteryTokenBalance = "0";
   }
 
   // Get the ETH balance of the connected wallet
@@ -136,7 +137,10 @@ export class ConnectedWalletComponent {
     this.lotteryContract = new Contract(this.lotteryContractAddress, lotteryABI, this.walletSigner);
     await this.lotteryContract
       .connect(this.walletSigner!)
-      ['purchaseTokens']({ value: value })
+      ['purchaseTokens']({ value: ethers.utils.formatEther(value) }).then(() => {
+        console.log('Tokens purchased');
+        this.getWalletInfo();
+      })
       .catch((error: any) => {
         if (error.code === 4001) {
           console.log('User rejected transaction');
