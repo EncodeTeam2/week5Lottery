@@ -13,12 +13,32 @@
       <p class="card-text"><strong>Prize: </strong> {{ lotteryPrizeWinnings }} LTO</p>
 
       <div *ngIf="walletAddress">
-        <p>Request Tokens up to 10 Tokens</p>
-        <input #valueInput class="input" type="number" min="1" max="10" />
+        <p>How much eth do you want to spend?</p>
+        <input #tokenMint class="input" type="number" />
         <div>
-          <button type="button" class="btn btn-success btn-md btn-block my-4" (click)="requestTokens(valueInput.value)">
+          <button type="button" class="btn btn-success btn-md btn-block my-4" (click)="requestTokens(tokenMint.value)">
             Request Tokens
           </button>
+        </div>
+        <div *ngIf="lotteryTokenBalance">
+          <p>Place one bet</p>
+          <button type="button" class="btn btn-success btn-md btn-block my-4" (click)="placeBet()">Bet Once</button>
+          <p>How many tokens do you want to bet with?</p>
+          <input #betValue class="input" type="number" />
+          <div>
+            <button type="button" class="btn btn-success btn-md btn-block my-4" (click)="requestTokens(betValue.value)">
+              Place Bet
+            </button>
+          </div>
+          <div>
+            <p>How long do you want to open the bets?</p>
+            <input #duration class="input" type="number" />
+            <div>
+              <button type="button" class="btn btn-success btn-md btn-block my-4" (click)="openBets(duration.value)">
+                Open Bets for {{ duration.value }} seconds
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
